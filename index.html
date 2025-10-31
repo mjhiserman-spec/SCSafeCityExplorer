@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Santa Clara City Leadership – Safe City Explorer</title>
+  <title>Santa Clara – Safe City Explorer</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
@@ -20,238 +20,143 @@
       color: var(--neutral-grey);
     }
     .container {
-      max-width: 1200px;
+      max-width: 920px;
       margin: 48px auto 32px auto;
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 8px 34px rgba(63,201,25,.10);
-      padding: 32px 24px 32px 24px;
-      display: flex;
-      flex-direction: column;
+      padding: 48px 36px 40px 36px;
     }
     .title {
-      font-size: 2.4em;
+      font-size: 2.7em;
       font-weight: 700;
       color: var(--primary-green);
+      margin-bottom: 0.12em;
+      letter-spacing: -.02em;
       text-align: center;
-      margin-bottom: 8px;
-      letter-spacing: -.01em;
     }
     .subtitle {
+      font-size: 1.35em;
       color: var(--dark-green);
       text-align: center;
-      font-size: 1.21em;
-      font-weight: 500;
-      margin-bottom: 32px;
-    }
-    .columns {
-      display: flex;
-      gap: 40px;
-      width: 100%;
-      justify-content: center;
-    }
-    .column {
-      flex: 1;
-      min-width: 340px;
-      background: var(--light-grey);
-      border-radius: 12px;
-      padding: 13px 16px 20px 16px;
-      box-shadow: 0 2px 18px rgba(63,201,25, .06);
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .block-title {
-      font-size: 1.20em;
-      color: var(--dark-green);
-      margin-bottom: 19px;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: -.005em;
-    }
-    .dropdown {
-      background: #fff;
-      border: 2px solid var(--primary-green);
-      margin-bottom: 18px;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(63,201,25, .08);
-    }
-    .dropdown summary {
-      cursor: pointer;
-      padding: 15px 18px;
-      font-weight: bold;
-      color: var(--primary-green);
-      font-size: 1.07em;
-      border-radius: 8px;
-      background: none;
-      transition: background 0.16s;
-      outline: none;
-      border-bottom: 1px solid var(--light-green);
-    }
-    .dropdown[open] summary {
-      background: var(--light-green);
-      color: var(--dark-green);
-    }
-    .profile {
-      padding: 14px 22px 13px 22px;
-      font-size: 1em;
-      color: var(--neutral-grey);
-      background: var(--light-grey);
-      border-radius: 7px;
       margin-top: 2px;
+      margin-bottom: 32px;
       font-weight: 400;
-      border-left: 4px solid var(--primary-green);
-      box-shadow: 0 2px 12px rgba(63,201,25, .05);
     }
-    .section {
-      margin-top: 8px;
-      margin-bottom: 7px;
-    }
-    .campaign {
+    .intro {
       background: var(--light-green);
-      font-size: .99em;
+      border-radius: 10px;
+      padding: 26px 22px 16px 22px;
+      font-size: 1.15em;
+      margin-bottom: 30px;
       color: var(--dark-green);
-      border-radius: 4px;
-      padding: 6px 9px;
-      margin-bottom: 6px;
-      margin-top: 9px;
-      font-weight: 500;
-      border-left: 4px solid var(--primary-green);
-    }
-    .flock-value, .flock-expand {
-      margin-top: 7px;
-      background: #eaffed;
-      border-radius: 4px;
-      padding: 6px 9px;
-      color: var(--dark-green);
-      font-size: .98em;
-      border-left: 4px solid var(--light-green);
-    }
-    .next-election {
-      font-size: .97em;
-      color: var(--neutral-grey);
-      margin-top: 6px;
-      margin-bottom: 2px;
+      box-shadow: 0 2px 12px rgba(63,201,25,.07);
       font-weight: 500;
     }
-    a {
+    .mainnav {
+      padding: 0 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+      margin-top: 12px;
+    }
+    .navcard {
+      background: var(--light-grey);
+      box-shadow: 0 1px 7px rgba(63,201,25,.10);
+      border-radius: 9px;
+      border: 2px solid var(--primary-green);
+      padding: 22px 27px 20px 27px;
+      min-width: 175px;
+      max-width: 340px;
+      transition: box-shadow .14s, transform .14s;
+      text-align:left;
+      flex: 1 1 270px;
+    }
+    .navcard:hover {
+      box-shadow: 0 3px 22px rgba(63,201,25,.25);
+      transform: translateY(-3px) scale(1.02);
+      border-color: var(--dark-green);
+    }
+    .navcard h3 {
+      margin: 0 0 8px 0;
       color: var(--primary-green);
+      font-size: 1.09em;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .navcard p {
+      margin: 0;
+      color: var(--neutral-grey);
+      font-size: 1.01em;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .navcard a {
+      color: var(--dark-green);
       text-decoration: underline;
+      font-weight: 700;
+      letter-spacing: -.015em;
     }
-    @media (max-width: 950px) {
-      .columns { flex-direction: column; gap: 18px; }
-      .container { padding: 12px 2px; }
+    .notice {
+      background: var(--primary-green);
+      padding: 13px 24px;
+      border-radius: 9px;
+      text-align: center;
+      margin-top: 30px;
+      color: #fff;
+      font-size: 1.06em;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(63,201,25,.10);
     }
-    @media (max-width: 600px) {
-      .container { padding: 3px 0;}
-      .title {font-size: 1.35em;}
-      .block-title {font-size: 1em;}
+    @media (max-width: 810px) {
+      .container { padding: 20px 8px; }
+      .mainnav { padding:0; gap: 12px; }
+      .navcard { min-width: 140px; padding: 18px 10px;}
+    }
+    @media (max-width: 490px) {
+      .title {font-size: 2em;}
+      .intro {padding: 10px 7px;}
+      .container {padding:4px 0;}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="title">Santa Clara City Leadership</div>
-    <div class="subtitle">Elected Officials & City Administration | Flock Safety-focused strategy, priorities, and value</div>
-    <div class="columns">
-      <!-- Elected Officials Column -->
-      <div class="column">
-        <div class="block-title">Elected Officials</div>
-        <details class="dropdown">
-          <summary>Lisa M. Gillmor – Mayor</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Chair, Diversity, Equity & Inclusion Task Force; ex officio Stadium Authority, Open Space, Industrial Development Authority.</div>
-            <div class="section"><strong>Initiatives:</strong> Downtown revitalization, housing affordability, government ethics, retail safety, public infrastructure, and supporting critical city events.</div>
-            <div class="campaign">Campaign Promises: Downtown vision, protect neighborhoods, advance safety tech, expand community events.</div>
-            <div class="next-election">Next Election: November 2026</div>
-            <div class="flock-value">Flock Value: Supports real-time safety downtown, aids crime reduction near business and stadium, strengthens evidence collection.</div>
-            <div class="flock-expand">Expansion: New Flock units for stadium, events, and high-traffic districts would deliver enhanced protection during city events and foster smart growth—core priorities.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Anthony Becker – Councilmember</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Stadium Authority, Ethics Committee, Budget Review, Community Development.</div>
-            <div class="section"><strong>Initiatives:</strong> Housing equity, sustainability, traffic safety, retail protection, community engagement.</div>
-            <div class="campaign">Campaign Promises: Safer retail, traffic calming, climate action, increased transparency.</div>
-            <div class="next-election">Next Election: November 2026</div>
-            <div class="flock-value">Flock Value: Delivers crime alerts, retail theft data, transparency for stakeholders.</div>
-            <div class="flock-expand">Expansion: More cameras for school/retail zones and expanded hotlist services would drive district incident response and further retail zone protection.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Raj Chahal – Councilmember</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Audit Committee, Infrastructure, Diversity Taskforce.</div>
-            <div class="section"><strong>Initiatives:</strong> Neighborhood preservation, youth safety, infrastructure investment, inclusivity.</div>
-            <div class="campaign">Campaign Promises: Safer neighborhoods, youth programs, infrastructure growth.</div>
-            <div class="next-election">Next Election: November 2026</div>
-            <div class="flock-value">Flock Value: Evidence for youth protection, incident mapping, security at parks/schools.</div>
-            <div class="flock-expand">Expansion: Deploying Flock at parks/schools would better protect youth and support safety-first infrastructure goals.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Kathy Watanabe – Councilmember</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Infrastructure, Retail Protection, Budget.</div>
-            <div class="section"><strong>Initiatives:</strong> Retail safety, local business support, aging services, transparency.</div>
-            <div class="campaign">Campaign Promises: Protect local businesses, community engagement, budget responsibility.</div>
-            <div class="next-election">Next Election: November 2026</div>
-            <div class="flock-value">Flock Value: Boosts business district security, helps recover stolen assets.</div>
-            <div class="flock-expand">Expansion: Additional units for retail corridors would protect more businesses and support rapid alerts for theft.</div>
-          </div>
-        </details>
-        <!-- Add more councilmembers as needed -->
+    <div class="title">Santa Clara<br>Safe City Explorer</div>
+    <div class="subtitle">Real metrics, active transparency, and live initiatives<br>powered by official City & PD sources</div>
+    <div class="intro">
+      Comprehensive explorer for safety technology impact, department metrics, crime stats, leadership bios, and grant-driven programs in Santa Clara.<br>Updated for 2025 using City, SCPD, BSCC and DA sources.
+    </div>
+    <div class="mainnav">
+      <div class="navcard">
+        <h3>City Leadership</h3>
+        <p>Elected officials and SCPD administration—including bios and contact details.<br>
+          <a href="santa-clara-safe-city-leadership.html">View Leadership</a>
+        </p>
       </div>
-      <!-- City Administration Column -->
-      <div class="column">
-        <div class="block-title">City Administration</div>
-        <details class="dropdown">
-          <summary>Jovan D. Grogan – City Manager</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Stadium Authority, Silicon Valley Power, City Operations Council.</div>
-            <div class="section"><strong>Initiatives:</strong> Fiscal health, technology modernization, service expansion, strategic partnerships.</div>
-            <div class="flock-value">Flock Value: Digital evidence for budget savings, data for smart resource allocation.</div>
-            <div class="flock-expand">Expansion: Citywide Flock analytics support smarter city staffing, resource planning, and future grant funding.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Chris Ortiz – Director of Public Safety</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Emergency Management, Youth Outreach, Community Safety Advisory Group.</div>
-            <div class="section"><strong>Initiatives:</strong> Emergency readiness, proactive safety, youth protection, alternative response.</div>
-            <div class="flock-value">Flock Value: Supports youth and recreation safety, powers rapid emergency response, transparency for parents & schools.</div>
-            <div class="flock-expand">Expansion: New Flock sensors for schools/recreation centers strengthen youth and vulnerable community protection.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Cory Morgan – Chief of Police</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Real-Time Crime Center, Organized Retail Theft Task Force, Internal Tech Innovation Team.</div>
-            <div class="section"><strong>Initiatives:</strong> Crime reduction, tech adoption, event safety, transparency.</div>
-            <div class="flock-value">Flock Value: Proactive stolen vehicle and retail crime detection, shared alerts, audit trail capability.</div>
-            <div class="flock-expand">Expansion: More Flock units and AI analytics at stadium/events and retail centers support major crime prevention and transparent audits.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Wahid Kazem – Assistant Chief of Police</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Patrol Operations, Juvenile Safety, School Zone Task Force.</div>
-            <div class="section"><strong>Initiatives:</strong> Juvenile safety, traffic control, proactive patrol, school safety.</div>
-            <div class="flock-value">Flock Value: Fast school patrol alerts, supports traffic safety, juvenile area monitoring.</div>
-            <div class="flock-expand">Expansion: More Flock units near schools/parks enable real-time youth protection and safety enforcement.</div>
-          </div>
-        </details>
-        <details class="dropdown">
-          <summary>Division Captains (Crescini, Fitting, Martin, Richards)</summary>
-          <div class="profile">
-            <div class="section"><strong>Committees:</strong> Patrol, Investigations, Admin, Special Operations Divisions.</div>
-            <div class="section"><strong>Initiatives:</strong> Proactive policing, digital evidence, policy compliance, major event security.</div>
-            <div class="flock-value">Flock Value: Investigation support, major event security, best practice policing.</div>
-            <div class="flock-expand">Expansion: Captains benefit from targeted Flock cameras—Patrol improves deployment, Investigations recover more assets, Admin ensures compliance, Special Ops secures events.</div>
-          </div>
-        </details>
+      <div class="navcard">
+        <h3>Fiscal Summary & Metrics</h3>
+        <p>2024-25 budget details, staffing levels, incident reports, and citywide crime rates.<br>
+          <a href="santa-clara-safe-city-fiscal-metrics.html">See Key Metrics</a>
+        </p>
       </div>
+      <div class="navcard">
+        <h3>Flock Safety Spend Analysis</h3>
+        <p>ALPR deployment, contract transparency, partner agencies, privacy and audit policy.<br>
+          <a href="santa-clara-safe-city-flock-analysis.html">Spend Analysis</a>
+        </p>
+      </div>
+      <div class="navcard">
+        <h3>Prospecting & Product Positioning</h3>
+        <p>Retail theft, grant dashboards, new tech rollouts, and public safety initiatives.<br>
+          <a href="santa-clara-safe-city-prospecting.html">Strategic Initiatives</a>
+        </p>
+      </div>
+    </div>
+    <div class="notice">
+      <strong>Statistics Updated:</strong> October 31, 2025. Sourced from City of Santa Clara, SCPD, BSCC, and DA.
     </div>
   </div>
 </body>
