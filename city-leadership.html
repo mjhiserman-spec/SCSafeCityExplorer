@@ -4,161 +4,246 @@
   <meta charset="UTF-8">
   <title>Santa Clara City Leadership – Safe City Explorer</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Flock Safety Brand Font can be "Roboto" for web compatibility; for more brand feel, check flock safety official fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; background: #f3f6fb; color: #222;}
-    .container { max-width: 920px; margin: 48px auto 32px auto; background: #fff;
-      border-radius: 16px; box-shadow: 0 8px 34px rgba(33,69,118,.10); padding: 44px 32px 38px 32px; }
-    .title { font-size: 2.35em; font-weight: 700; color: #1967d2; letter-spacing: -.01em;
-      margin-bottom: 0.11em; text-align: center;}
-    .subtitle { color: #2562a2; text-align: center; margin-bottom: 38px; font-size: 1.17em; font-weight: 400;}
-    .block { margin-bottom: 34px;}
-    .block-title { color: #1762ad; font-size: 1.25em; font-weight: 700; margin-bottom: 14px;}
-    .leader-list { list-style: none; padding: 0; margin: 0;}
-    .leader { background: #e9f3fd; margin: 0 0 16px 0; padding: 18px 22px 16px 22px;
-      border-radius: 8px; box-shadow: 0 2px 12px rgba(33,69,118,.06);}
-    .leader-role { color: #1967d2; font-weight: bold; font-size: 1.11em; margin-bottom: 2px;}
-    .leader-name { font-weight: 500; font-size: 1.16em; letter-spacing: -.01em; margin-bottom: 3px;}
-    .bio, .flock-value, .flock-expand { font-size: .99em; color: #2d425c; margin-top: 4px; }
-    .committee { font-size: .98em; color: #267; margin-top:2px;}
-    .highlight { background: #faf7e3; border-radius: 4px; padding: 5px 8px; }
-    @media (max-width: 600px) { .container { padding:13px 3px; }
-      .title { font-size: 1.4em; } }
+    :root {
+      --primary-green: #3FC919;
+      --light-green: #84DA6C;
+      --dark-green: #2E9212;
+      --neutral-grey: #777C75;
+      --light-grey: #F3F4F6;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: var(--light-grey);
+      color: var(--neutral-grey);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 48px auto 32px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 34px rgba(50,145,18, .10);
+      padding: 32px 24px 32px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .title {
+      font-size: 2.4em;
+      font-weight: 700;
+      color: var(--primary-green);
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: -.01em;
+    }
+    .subtitle {
+      color: var(--dark-green);
+      text-align: center;
+      font-size: 1.21em;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+    .columns {
+      display: flex;
+      gap: 40px;
+      width: 100%;
+      justify-content: center;
+    }
+    .column {
+      flex: 1;
+      min-width: 340px;
+      background: var(--light-grey);
+      border-radius: 12px;
+      padding: 13px 16px 20px 16px;
+      box-shadow: 0 2px 18px rgba(63,201,25, .07);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .block-title {
+      font-size: 1.20em;
+      color: var(--dark-green);
+      margin-bottom: 19px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -.005em;
+    }
+    .dropdown {
+      background: #fff;
+      border: 2px solid var(--primary-green);
+      margin-bottom: 18px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(50,145,18, .06);
+    }
+    .dropdown summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      font-weight: bold;
+      color: var(--primary-green);
+      font-size: 1.07em;
+      border-radius: 8px;
+      background: none;
+      transition: background 0.18s;
+      outline: none;
+    }
+    .dropdown[open] summary {
+      background: var(--light-green);
+      color: var(--dark-green);
+    }
+    .profile {
+      padding: 14px 22px 13px 22px;
+      font-size: 1em;
+      color: #222;
+      background: var(--light-grey);
+      border-radius: 7px;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+    .section {
+      margin-top: 8px;
+      margin-bottom: 7px;
+    }
+    .campaign {
+      background: var(--light-green);
+      font-size: .99em;
+      color: var(--dark-green);
+      border-radius: 4px;
+      padding: 6px 9px;
+      margin-bottom: 6px;
+      margin-top: 9px;
+      font-weight: 500;
+    }
+    .flock-value, .flock-expand {
+      margin-top: 7px;
+      background: #eaffed;
+      border-radius: 4px;
+      padding: 6px 9px;
+      color: var(--dark-green);
+      font-size: .98em;
+    }
+    .next-election {
+      font-size: .97em;
+      color: var(--neutral-grey);
+      margin-top: 6px;
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+    @media (max-width: 950px) {
+      .columns { flex-direction: column; gap: 18px; }
+      .container { padding: 12px 2px; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 3px 0;}
+      .title {font-size: 1.35em;}
+      .block-title {font-size: 1em;}
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="title">Santa Clara<br>City Leadership</div>
-    <div class="subtitle">2025 Council, Administration, and Police Department Leadership<br>with focus on committees, priorities, and strategic value from Flock Safety technology</div>
-    <div class="block">
-      <div class="block-title">Elected Officials</div>
-      <ul class="leader-list">
-        <li class="leader">
-          <div class="leader-role">Mayor</div>
-          <div class="leader-name">Lisa M. Gillmor</div>
-          <div class="bio">
-            Fourth-generation Santa Claran, real estate broker, former council member, and vice mayor. Champions infrastructure improvements, housing balance, neighborhood preservation, diversity, and economic development. Major force in committee leadership and political advocacy, aiming to protect Santa Clara’s identity while guiding big growth.
+    <div class="title">Santa Clara City Leadership</div>
+    <div class="subtitle">Elected Officials & City Administration | Flock Safety-focused strategy, priorities, and value</div>
+    <div class="columns">
+      <!-- Elected Officials Column -->
+      <div class="column">
+        <div class="block-title">Elected Officials</div>
+        <details class="dropdown">
+          <summary>Lisa M. Gillmor – Mayor</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Chair, Diversity, Equity & Inclusion Task Force; ex officio Stadium Authority, Open Space, Industrial Development Authority.</div>
+            <div class="section"><strong>Initiatives:</strong> Downtown revitalization, housing affordability, government ethics, retail safety, public infrastructure, and supporting critical city events.</div>
+            <div class="campaign">Campaign Promises: Downtown vision, protect neighborhoods, advance safety tech, expand community events.</div>
+            <div class="next-election">Next Election: November 2026</div>
+            <div class="flock-value">Flock Value: Supports real-time safety downtown, aids crime reduction near business and stadium, strengthens evidence collection.</div>
+            <div class="flock-expand">Expansion: New Flock units for stadium, events, and high-traffic districts would deliver enhanced protection during city events and foster smart growth—core priorities.</div>
           </div>
-          <div class="committee highlight">
-            <strong>Committee Affiliations:</strong> Chairs Task Force on Diversity, Equity & Inclusion. Serves ex officio on Sports & Open Space Authority, Stadium Authority, Industrial Development Authority, and others.
+        </details>
+        <details class="dropdown">
+          <summary>Anthony Becker – Councilmember</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Stadium Authority, Ethics Committee, Budget Review, Community Development.</div>
+            <div class="section"><strong>Initiatives:</strong> Housing equity, sustainability, traffic safety, retail protection, community engagement.</div>
+            <div class="campaign">Campaign Promises: Safer retail, traffic calming, climate action, increased transparency.</div>
+            <div class="next-election">Next Election: November 2026</div>
+            <div class="flock-value">Flock Value: Delivers crime alerts, retail theft data, transparency for stakeholders.</div>
+            <div class="flock-expand">Expansion: More cameras for school/retail zones and expanded hotlist services would drive district incident response and further retail zone protection.</div>
           </div>
-          <div class="bio highlight">
-            <strong>Initiatives & Interests:</strong> Small town feel with big opportunities, ethics in government, public safety, downtown revitalization, responsible stadium operations, affordable housing.
+        </details>
+        <details class="dropdown">
+          <summary>Raj Chahal – Councilmember</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Audit Committee, Infrastructure, Diversity Taskforce.</div>
+            <div class="section"><strong>Initiatives:</strong> Neighborhood preservation, youth safety, infrastructure investment, inclusivity.</div>
+            <div class="campaign">Campaign Promises: Safer neighborhoods, youth programs, infrastructure growth.</div>
+            <div class="next-election">Next Election: November 2026</div>
+            <div class="flock-value">Flock Value: Evidence for youth protection, incident mapping, security at parks/schools.</div>
+            <div class="flock-expand">Expansion: Deploying Flock at parks/schools would better protect youth and support safety-first infrastructure goals.</div>
           </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Flock Safety supports safe growth downtown and near event sites (Levi's Stadium). Enables real-time evidence collection, deters vehicle theft, and supports business safety.
+        </details>
+        <details class="dropdown">
+          <summary>Kathy Watanabe – Councilmember</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Infrastructure, Retail Protection, Budget.</div>
+            <div class="section"><strong>Initiatives:</strong> Retail safety, local business support, aging services, transparency.</div>
+            <div class="campaign">Campaign Promises: Protect local businesses, community engagement, budget responsibility.</div>
+            <div class="next-election">Next Election: November 2026</div>
+            <div class="flock-value">Flock Value: Boosts business district security, helps recover stolen assets.</div>
+            <div class="flock-expand">Expansion: Additional units for retail corridors would protect more businesses and support rapid alerts for theft.</div>
           </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> More Flock cameras and analytics in targeted growth districts will bolster safety during large events, reinforce traffic & pedestrian monitoring, and support neighborhood preservation—the mayor’s core goals.
+        </details>
+        <!-- Add more Councilmembers with the same format if desired -->
+      </div>
+      <!-- City Administration Column -->
+      <div class="column">
+        <div class="block-title">City Administration</div>
+        <details class="dropdown">
+          <summary>Jovan D. Grogan – City Manager</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Stadium Authority, Silicon Valley Power, City Operations Council.</div>
+            <div class="section"><strong>Initiatives:</strong> Fiscal health, technology modernization, service expansion, strategic partnerships.</div>
+            <div class="flock-value">Flock Value: Digital evidence for budget savings, data for smart resource allocation.</div>
+            <div class="flock-expand">Expansion: Citywide Flock analytics support smarter city staffing, resource planning, and future grant funding.</div>
           </div>
-        </li>
-        <li class="leader">
-          <div class="leader-role">City Council (2025):</div>
-          <div class="leader-name">Anthony Becker, Raj Chahal, Kevin Park, Karen Hardy, Suds Jain, Kathy Watanabe</div>
-          <div class="committee highlight">
-            <strong>Committee Affiliations:</strong> Members serve on Audit, Stadium Authority, Ethics, Diversity, Infrastructure, and Budget Review Committees (see <a href="https://www.santaclaraca.gov/our-city/government/city-committees" target="_blank">official list</a>).
+        </details>
+        <details class="dropdown">
+          <summary>Chris Ortiz – Director of Public Safety</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Emergency Management, Youth Outreach, Community Safety Advisory Group.</div>
+            <div class="section"><strong>Initiatives:</strong> Emergency readiness, proactive safety, youth protection, alternative response.</div>
+            <div class="flock-value">Flock Value: Supports youth and recreation safety, powers rapid emergency response, transparency for parents & schools.</div>
+            <div class="flock-expand">Expansion: New Flock sensors for schools/recreation centers strengthen youth and vulnerable community protection.</div>
           </div>
-          <div class="bio highlight">
-            <strong>Council Priorities:</strong> Ethics, housing equity, traffic improvements, retail support, sustainability, downtown revitalization, public engagement.
+        </details>
+        <details class="dropdown">
+          <summary>Cory Morgan – Chief of Police</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Real-Time Crime Center, Organized Retail Theft Task Force, Internal Tech Innovation Team.</div>
+            <div class="section"><strong>Initiatives:</strong> Crime reduction, tech adoption, event safety, transparency.</div>
+            <div class="flock-value">Flock Value: Proactive stolen vehicle and retail crime detection, shared alerts, audit trail capability.</div>
+            <div class="flock-expand">Expansion: More Flock units and AI analytics at stadium/events and retail centers support major crime prevention and transparent audits.</div>
           </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Data sharing for incident investigations, retail theft reductions, real-time alerts for district businesses, and best practice transparency in evidence collection.
+        </details>
+        <details class="dropdown">
+          <summary>Wahid Kazem – Assistant Chief of Police</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Patrol Operations, Juvenile Safety, School Zone Task Force.</div>
+            <div class="section"><strong>Initiatives:</strong> Juvenile safety, traffic control, proactive patrol, school safety.</div>
+            <div class="flock-value">Flock Value: Fast school patrol alerts, supports traffic safety, juvenile area monitoring.</div>
+            <div class="flock-expand">Expansion: More Flock units near schools/parks enable real-time youth protection and safety enforcement.</div>
           </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Council can use expanded Flock products to address district-specific priorities: more cameras in high traffic zones, school areas, retail corridors, and support advanced analytics for sustainable policing.
+        </details>
+        <details class="dropdown">
+          <summary>Division Captains (Crescini, Fitting, Martin, Richards)</summary>
+          <div class="profile">
+            <div class="section"><strong>Committees:</strong> Patrol, Investigations, Admin, Special Operations Divisions.</div>
+            <div class="section"><strong>Initiatives:</strong> Proactive policing, digital evidence, policy compliance, major event security.</div>
+            <div class="flock-value">Flock Value: Investigation support, major event security, best practice policing.</div>
+            <div class="flock-expand">Expansion: Captains benefit from targeted Flock cameras—Patrol improves deployment, Investigations recover more assets, Admin ensures compliance, Special Ops secures events.</div>
           </div>
-        </li>
-      </ul>
-    </div>
-    <div class="block">
-      <div class="block-title">City Administration</div>
-      <ul class="leader-list">
-        <li class="leader">
-          <div class="leader-role">City Manager</div>
-          <div class="leader-name">Jovan D. Grogan</div>
-          <div class="bio">
-            Veteran city manager; heads Santa Clara Stadium Authority and Silicon Valley Power; champion of fiscal sustainability, organizational modernization, housing, and community services. Manages city operations and strategic budgeting.
-          </div>
-          <div class="committee highlight">
-            <strong>Key Initiatives:</strong> Fiscal health, strategic service expansion, multi-agency partnerships, tech-driven city operations, long-term investment in community resources.
-          </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Flock supports budget efficiency and public safety technology—digital evidence reduces investigation costs and enables faster resolution of incidents, which helps keep city costs down.
-          </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Integrating additional Flock analytics/cameras citywide will provide data for smarter deployment of staffing/resources, boost safety near utility and stadium assets, and support future grant appeals.
-          </div>
-        </li>
-        <li class="leader">
-          <div class="leader-role">Director of Public Safety</div>
-          <div class="leader-name">Chris Ortiz</div>
-          <div class="bio">
-            Coordinates emergency management, leads regional and youth program expansion, guides policy for proactive and alternative safety strategies. Advocate for balancing innovation with community trust.
-          </div>
-          <div class="committee highlight">
-            <strong>Committees & Initiatives:</strong> Reimagining Community Safety Advisory Group, Emergency Response Planning, Equity and Youth Outreach.
-          </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Flock helps Ortiz deliver fast and fair public safety, supports alternative response and youth protection initiatives, and improves transparency.
-          </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Adding Flock sensors to recreation centers, schools, and youth corridors bolsters safe routes and proactive monitoring for vulnerable populations; supports new public safety models and trust building.
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="block">
-      <div class="block-title">Police Department Command Staff</div>
-      <ul class="leader-list">
-        <li class="leader">
-          <div class="leader-role">Chief of Police</div>
-          <div class="leader-name">Cory Morgan</div>
-          <div class="bio">
-            SCPD officer since 2007, deeply rooted in local community. Leads major crime reduction efforts, technology adoption, and transparency initiatives. Focused on real-time policing and fighting auto/retail theft.
-          </div>
-          <div class="committee highlight">
-            <strong>Key Initiatives:</strong> Real-Time Crime Center, Organized Retail Theft Task Force (*with DA*), Technology Innovation Team, Patrol and Investigations modernization.
-          </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Flock enables proactive detection of stolen vehicles and retail crime, data-driven hotlist alerts, and seamless sharing with multi-agency partners.
-          </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Expanding Flock coverage and integrating AI analytics supports crime prediction, strengthens event response at stadiums, and helps achieve transparency goals (audit trails, independent review).
-          </div>
-        </li>
-        <li class="leader">
-          <div class="leader-role">Assistant Chief of Police</div>
-          <div class="leader-name">Wahid Kazem</div>
-          <div class="bio">
-            Expert in police operations, oversees field units and special operations; collaborates on retail theft, proactive patrol, and school safety programs.
-          </div>
-          <div class="committee highlight">
-            <strong>Key Focus:</strong> Organized Retail Theft, Juvenile Safety, School Zone Patrols, Traffic Safety.
-          </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Flock’s patrol alerts and real-time access cut incident response times; provides valuable school area monitoring for traffic/vehicle threats.
-          </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Further deployment at schools, parks, and retail centers will amplify juvenile protection, traffic risk mitigation, and incident resolution speed.
-          </div>
-        </li>
-        <li class="leader">
-          <div class="leader-role">Division Captains</div>
-          <div class="leader-name">Mike Crescini, Richard Fitting, Luis Martin, Nick Richards</div>
-          <div class="bio">
-            Lead Patrol, Investigations, Administration, and Special Operations. Each innovates policing initiatives in their division, focusing on safety outcomes, transparency, and regional coordination.
-          </div>
-          <div class="committee highlight">
-            <strong>Division Priorities:</strong> Patrol: proactive deployment. Investigations: digital evidence use. Admin: policy compliance. Special Ops: major event security.
-          </div>
-          <div class="flock-value">
-            <strong>Current Value from Flock:</strong> Cross-division use of Flock tech for incident investigation, major event safety, and protecting Santa Clara’s retail and residential assets.
-          </div>
-          <div class="flock-expand">
-            <strong>Strategic Expansion Value:</strong> Targeted Flock expansion will multiply value: Investigations can recover more stolen vehicles, Special Ops can secure large events, and Admin can validate best practice audits.
-          </div>
-        </li>
-      </ul>
+        </details>
+      </div>
     </div>
   </div>
 </body>
