@@ -2,204 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Santa Clara Safe City Explorer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santa Clara – Safe City Explorer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #3FC919;
-      --light: #84DA6C;
-      --dark: #2E9212;
-      --neutral: #777C75;
-      --light-grey: #F3F4F6;
-      --header-font: 'Lato', Arial, sans-serif;
-    }
     body {
-      font-family: var(--header-font);
-      background: var(--light-grey);
-      color: #222;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
+      background: #f3f6fb;
+      color: #222;
     }
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 2rem 1rem 1rem 1rem;
-      text-align: center;
-    }
-    h1, h2, h3 {
-      margin: 0.5em 0;
-      font-family: var(--header-font);
-    }
-    section {
+    .container {
+      max-width: 920px;
+      margin: 48px auto 32px auto;
       background: #fff;
-      margin: 2rem auto;
-      max-width: 900px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,80,0,0.05);
-      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 34px rgba(33,69,118,.10);
+      padding: 48px 36px 40px 36px;
     }
-    .block {
-      background: var(--light);
-      border-left: 7px solid var(--primary);
-      padding: 1rem 1.5rem 1.5rem 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-    }
-    .brand-highlight {
-      background: var(--dark);
-      color: #fff;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    ul, ol {
-      margin-left: 1.5rem;
-    }
-    .footer {
-      background: var(--neutral);
-      color: #fff;
-      padding: 1rem;
+    .title {
+      font-size: 2.7em;
+      font-weight: 700;
+      color: #1967d2;
+      margin-bottom: 0.12em;
+      letter-spacing: -.02em;
       text-align: center;
-      font-size: 0.8em;
-      width: 100%;
-      margin-top: 2rem;
-      border-radius: 0 0 12px 12px;
     }
-    @media (max-width: 640px) {
-      section { padding: 1rem; }
+    .subtitle {
+      font-size: 1.35em;
+      color: #2562a2;
+      text-align: center;
+      margin-top: 2px;
+      margin-bottom: 32px;
+      font-weight: 400;
     }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Santa Clara Safe City Explorer</h1>
-    <p>
-      Explore Santa Clara's public safety and community landscape.<br>
-      Get insights into city leadership, departments, budget allocations, and strategic opportunities for a safer community.
-    </p>
-  </header>
-  <section>
-    <h2>Entity Profiles: Meet the Santa Clara Leadership</h2>
-    <div class="block">
-      <b>Santa Clara City Council:</b>
-      <ul>
-        <li>Mayor Lisa M. Gillmor – Leads public safety & development</li>
-        <li>Vice Mayor Suds Jain – Focused on infrastructure and community safety (District 1)</li>
-        <li>Councilmember Raj Chahal – Economic development & services (District 2)</li>
-        <li>Councilmember Anthony Becker – Transparency & fiscal responsibility (District 3)</li>
-        <li>Councilmember Kathy Watanabe – Community engagement (District 4)</li>
-        <li>Councilmember Karen Hardy – Sustainable growth (District 5)</li>
-        <li>Councilmember Kevin Park – Innovation & technology (District 6)</li>
-      </ul>
-      <b>Department Heads:</b>
-      <ul>
-        <li>Chief of Police</li>
-        <li>Fire Chief</li>
-        <li>Parks & Recreation Director</li>
-        <li>City Manager</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>Governance: Santa Clara City Structure & Context</h2>
-    <div class="block">
-      <b>Council-Manager Government:</b>
-      <p>
-        The City Council sets policy. The City Manager oversees operations.<br>
-        Public safety and budget approvals are core priorities.<br>
-        Departments: Police, Fire, Parks & Recreation, Public Works.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Resources: City & Department Information</h2>
-    <div class="block">
-      <b>Police Department</b>: (408) 615-4700 | <a href="https://santaclaraca.gov/police">Website</a><br>
-      <b>Fire Department</b>: (408) 615-4900 | <a href="https://santaclaraca.gov/fire">Website</a><br>
-      <b>Parks & Recreation</b>: (408) 615-3140 | <a href="https://santaclaraca.gov/parks">Website</a><br>
-      <b>City Manager's Office</b>: (408) 615-2210 | citymanager@santaclaraca.gov
-    </div>
-  </section>
-
-  <section>
-    <h2>Prospecting: Flock Safety Product Positioning</h2>
-    <div class="block">
-      <b>Police:</b> ALPR, Live Video, Raven, FlockOS, Flock911, DFR, Freeform<br>
-      <b>Fire:</b> DFR, Live Video, Flock911<br>
-      <b>Parks & Recreation:</b> ALPR, Live Video, Freeform<br>
-      <b>Traffic:</b> ALPR, Live Video, Raven<br>
-      <b>City Planning:</b> ALPR (Anonymous Data)<br>
-      <b>Emergency Management:</b> FlockOS, DFR, Live Video, Freeform<br>
-      <b>School Safety:</b> ALPR, Live Video, Raven, Flock911
-      <ul>
-        <li><b>Key Prospecting Questions:</b> e.g. What are your department’s technology priorities for FY 2025-2026?</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>Flock Safety Spend Analysis</h2>
-    <div class="block">
-      <b>Annual Flock Safety Investment:</b> $450,000/year<br>
-      40 ALPR cameras, 15 Live Video cameras, 10 Raven sensors, FlockOS, DFR pilot, Flock911.<br>
-      <b>ROI:</b> 30-40% case clearance increase, 50-70% investigation time reduction, multi-department value.<br>
-      <span class="brand-highlight">At only 5.3% of Police capital budget, delivers coverage and insight equal to multiple officer positions.</span>
-    </div>
-  </section>
-
-  <section>
-    <h2>City-Wide Financial Analysis</h2>
-    <div class="block">
-      <b>General Fund:</b> ~$475M<br>
-      <b>Public Safety:</b> $185M (39%)<br>
-      <b>Police:</b> $125M<br>
-      <b>Fire:</b> $60M<br>
-      <b>Parks & Recreation:</b> $45M
-      <p>
-        <b>Financial Insights:</b> Public Safety is the highest priority; police department covers 26% of the fund.<br>
-        Flock's $450K equals 5.3% of the Police capital budget, 0.09% of total fund.<br>
-        IT budget of $20M allows for innovation investment.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Safe City Analysis & Strategic Opportunities</h2>
-    <div class="block">
-      <b>Deployment Opportunities:</b>
-      <ul>
-        <li>Law Enforcement – City-wide ALPR, RTCC integration</li>
-        <li>Fire – DFR drones, Live Video, Flock911 dispatch</li>
-        <li>Parks – Video for public spaces, Freeform for events</li>
-        <li>Traffic & City Planning – Data-driven intersection monitoring</li>
-        <li>Emergency Management – Multi-agency EOC, DFR rapid assessment</li>
-        <li>School Safety – ALPR perimeter, Raven for gunshot detection</li>
-      </ul>
-    </div>
-  </section>
-  
-  <section>
-    <h2>Strategic Recommendations</h2>
-    <div class="block">
-      <ol>
-        <li>Multi-Department Pilot Program: Launch high-impact deployments for Police, Parks, Fire. Pilot: $250–$300K, 6–9 months, show ROI.</li>
-        <li>Engage Councilmember Kevin Park as Technology Champion: Align Flock with innovation priorities, accelerate council approval.</li>
-        <li>Executive Sponsorship: Target Police Chief and City Manager for full implementation and multi-year funding.</li>
-        <li>Parks Safety Narrative: Quantify event security savings, enable broad council support.</li>
-        <li>Technology Roadmap: Position Flock as foundational in 3–5 year muni tech modernization plan.</li>
-      </ol>
-      <div class="brand-highlight">
-        Implementation priorities: Briefings, pilot deployment, performance tracking, council review.
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    Santa Clara Safe City Explorer &copy; 2025 | Powered by Flock Safety
-  </div>
-</body>
-</html>
+    .intro {
+      background: #e9f3fd;
+      border-radius: 10px;
+      padding: 26px 22px 16px 22px;
+      font-size: 1.15em;
+      margin-bottom: 30px;
+      color: #11558c;
+      box-shadow: 0 2px 12px rgba(33,69,118,.07);
+    }
+    .mainnav {
+      padding: 0 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+      margin-top: 12px;
+    }
+    .navcard {
+      background: #f6f8fa;
+      box-shadow: 0 1px 7px rgba(33,69,118,.06);
+      border-radius: 9px;
+      padding: 22px 27px 20px 27px;
+      min-width: 175px;
+      max-width: 340px;
+      transition: box-shadow .14s, transform .14s;
+      text-align:left;
+      flex: 1 1 270px;
+    }
+    .navcard:hover {
+      box-shadow: 0 3px 22px rgba(33,69,118,.14);
+      transform: translateY(-3px) scale(1.02);
+    }
+    .navcard h3 {
+      margin: 0 0 8px 0;
+      color: #1762ad;
+      font-size: 1.09em;
+      font-weight: 700;
+    }
+    .navcard p {
+      margin: 0;
+      color: #334760;
+      font-size: 1.01em;
+      line-height: 1.4;
+    }
+    .navcard a {
+      color: #357ae8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .notice {
+      background: #fff3cd;
+      padding: 13px
 
